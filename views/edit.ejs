@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="/css/tailwind.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <main class="w-full h-screen bg-zinc-100 font-[helvetica]">
+        <nav class="flex justify-between p-10">
+            <h3 class="text-2xl tracking-tight">Khaatabook</h3>
+            <div class="navlinks flex gap-5">
+              <a href="/">Home</a>
+              <a href="/create">Create New Hisaab</a>
+            </div>
+        </nav>
+        <div class="px-10 hisaabs">
+            <h3 class="capitalize text-2xl font-medium mb-5 mt-10 font-semibold">
+                you're editing the hisaab of <span class="text-blue-500 text-2xl"> <%= filename.split(".")[0] %></span> date
+              </h3>
+              <form action="/update/<%= filename %>" method="post">
+               
+                <textarea class=" block resize-none min-h-96 text-md px-3 py-2 w-1/2 mb-5 rounded-md border-none bg-zinc-200" placeholder="write your hisaab..." placeholder="update your hisaab" name="content"> <%= data %>
+                </textarea>
+                <input type="submit" class="block mt-5 px-5 py-3 bg-blue-500 text-white rounded-md" value="update hisaab">
+
+              </form>
+        </div>
+    </main>
+   
+    
+  </body>
+</html>
